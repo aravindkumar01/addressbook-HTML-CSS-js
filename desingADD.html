@@ -1,0 +1,342 @@
+<html>
+   <head>
+      <title>TODO | supply a title</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  
+      <style>
+   
+       .a input 
+         {
+			display:block;
+         }
+         html,body
+         {
+			background-color: #c5c2d1; 
+         }
+        #name {
+			-webkit-border-radius: 5px; 
+			-moz-border-radius: 5px; 
+			border-radius: 5px; 
+			border: 1px solid #848484; 
+			outline:0; 
+			height:35px; 
+			width: 275px; 
+         }
+		 #Fname{
+
+			-webkit-border-radius: 5px; 
+			-moz-border-radius: 5px; 
+			border-radius: 5px; 
+			border: 1px solid #848484; 
+			outline:0; 
+			height:35px; 
+			width: 275px; 
+     
+		 }
+		 #gender{
+			-webkit-border-radius: 5px; 
+			-moz-border-radius: 5px; 
+			border-radius: 5px; 
+			border: 1px solid #848484; 
+			outline:0; 
+			height:35px; 
+			width: 275px; 
+         }
+		 #dob {
+			-webkit-border-radius: 5px; 
+			-moz-border-radius: 5px; 
+			border-radius: 5px; 
+			border: 1px solid #848484; 
+			outline:0; 
+			height:35px; 
+			width: 275px; 
+         }
+		 #city{
+			-webkit-border-radius: 5px; 
+			-moz-border-radius: 5px; 
+			border-radius: 5px; 
+			border: 1px solid #848484; 
+			outline:0; 
+			height:35px; 
+			width: 275px; 
+         }
+		 #addr {
+			-webkit-border-radius: 5px; 
+			-moz-border-radius: 5px; 
+			border-radius: 5px; 
+			border: 1px solid #848484; 
+			outline:0; 
+			height:35px; 
+			width: 275px; 
+         }
+		 #mob{
+			-webkit-border-radius: 5px; 
+			-moz-border-radius: 5px; 
+			border-radius: 5px; 
+			border: 1px solid #848484; 
+			outline:0; 
+			height:35px; 
+			width: 275px; 
+         }
+		 
+		
+        
+
+            		
+		 #header {
+			color:#4772c6;
+			font-size:50px"
+		 }
+		 
+      </style>
+   </head>
+   <body>
+	<form action="av" method="post">
+      <section id="as" class="container-fluid">
+         <div class="row section-banner" >
+			<div class="col-md-offset-3 col-md-6 text-center">
+               <div>
+                  <span class="line "></span>
+                  <span class="section-header-title"> <font size="6"><u>ADDRESS BOOK</u></font></span>
+                  <span class="line "></span>
+               </div>
+            </div>
+         </div>
+         <br><br>
+		 <div class="col-sm-12">
+		  <div class="col-sm-6 text-left a" id="a">
+                  <label>NAME</label><br>
+                  <input type="text" id="name" name="name" placeholder="Enter Your Name" required/><br>
+                  <label>FATHER NAME</label><br>
+                  <input type="text" id="Fname" name="Fname" placeholder="Enter Father Name" required/><br>       
+                  <label>GENDER</label><br>
+                  <select id="gender" name="gender" placeholder="Select gender"><br>
+                     <option value="Male">Male</option>
+                     <option value="Female">Female</option>
+                  </select><br>
+             
+                  <label>DATE OF BIRTH</label><br>
+                  <input type="date" value="20-01-01" name="dob" id="dob" required/>
+                  <label>ADDRESS</label><br>
+				  <textarea rows="4" cols="35" name="addr" id="addr" class="addr" placeholder="Enter Address" ></textarea><br>
+                 
+                  <label>EMAIL</label><br>
+                  <input type="text" id="city" name="city" placeholder="Enter Email-id num" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"><br>
+                  <label>CONTACT NO</label><br>
+                  <input type="number" id="mob" name="mob" placeholder="Enter contact no" required/><br>
+				  <div class="col-sm-2" id="button_add">				  
+					 
+                       <button type="button" class="btn btn-primary btn-sm"  onclick="add();"  style="font-size:16px;"><span class="glyphicon glyphicon-plus" ></span>INSERT</button>
+
+                  </div>
+				  <div class="col-sm-2" id="button_update">
+					 <button type="button" class="btn btn-success btn-sm"  onclick="edit();"  style="font-size:16px;"><span class="glyphicon glyphicon-pencil" ></span>UPDATE</button>
+                 </div>
+				  <div class="col-sm-2" id="button_delete">
+					 <button type="button" class="btn btn-danger btn-sm"  onclick="deleteRow();"  style="font-size:16px;"><span class="glyphicon glyphicon-trash" ></span>DELETE</button>
+            </div>
+			   </div>
+         <div class="row-sm-8">
+            <div  class="row max" id="a">
+               <div class="col-sm-6 text-center">
+                  <table id="table" class="table"border="3">
+                     <tr>
+                        <th>NAME</th>
+                        <th>FATHER NAME</th>
+                        <th>GENDER</th>
+                        <th>DATE OF BIRTH</th>
+                        <th>ADDRESS</th>
+                        <th>CITY</th>
+                        <th>MOBILE</th>
+                     </tr>
+					</table>
+               </div>
+			</div>
+         </div>
+		 </div>
+</section>
+         <script>
+            var rIndex,
+                table = document.getElementById("table");
+
+			
+            function add()
+            {
+                      if(vaild())
+					  {
+               name=document.getElementById("name").value;
+                   Fname=document.getElementById("Fname").value;
+            gender=document.getElementById("gender").value;
+            dob=document.getElementById("dob").value;
+            addr=document.getElementById("addr").value;
+            city=document.getElementById("city").value;
+            mob=document.getElementById("mob").value;
+           
+            var newRow = table.insertRow(table.length),
+                    cell1 = newRow.insertCell(0),
+                    cell2 = newRow.insertCell(1),
+                    cell3 = newRow.insertCell(2),
+                    cell4 = newRow.insertCell(3),
+                    cell5 = newRow.insertCell(4),
+                    cell6 = newRow.insertCell(5),
+                    cell7 = newRow.insertCell(6);
+                   cell1.innerHTML=name;
+            cell2.innerHTML=Fname;
+            cell3.innerHTML=gender;
+            cell4.innerHTML=dob;
+            cell5.innerHTML=addr;      
+            cell6.innerHTML=city;
+            cell7.innerHTML=mob;
+			 document.getElementById("name").value = "";
+                name = document.getElementById("name").value="";
+                Fname=document.getElementById("Fname").value="";
+                gender=document.getElementById("gender").value="";
+                dob=document.getElementById("dob").value="";
+                addr=document.getElementById("addr").value="";
+                city=document.getElementById("city").value="";
+                mob=document.getElementById("mob").value="";
+				selectedRowToInput(); 
+				   swal("Record Inserted!", "You clicked the button!", "success");
+                          
+
+		   }
+           
+            function vaild()
+			{
+			 
+                
+                     name=document.getElementById("name").value;
+                   Fname=document.getElementById("Fname").value;
+ gender=document.getElementById("gender").value;
+      dob=document.getElementById("dob").value;
+      addr=document.getElementById("addr").value;
+      city=document.getElementById("city").value;
+      mob=document.getElementById("mob").value;
+  
+                if(name === ""){
+					swal("MSG!", "Name Cannot Be Empty!", "info");
+                    return  false;
+                }
+                else if(Fname === ""){
+					swal("MSG!", "Father Name Cannot Be Empty!", "info");
+                       return  false;
+                }
+                else if(gender === ""){
+					swal("MSG!", "Gender Canot Be Empty!", "info");
+                       return  false;
+                }
+                else if(dob === ""){
+					swal("MSG!", "dob Cannot Be Empty!", "info");
+                       return  false;
+                }
+                else if(addr === ""){
+					swal("MSG!", "Address Cannot Be Empty!", "info");
+                       return  false;
+                }
+                else if(city === ""){
+					swal("MSG!", "Email Cannot Be Empty!", "info");
+                       return  false;
+                }
+                else if(mob === ""){
+					swal("MSG!", "mobile Cannot Be Empty!", "info");
+                       return  false;
+                }
+                return true;
+				}
+         
+            }
+            
+            
+            selectedRowToInput();
+            function selectedRowToInput()
+            {
+                
+                
+                for(var i = 1; i < table.rows.length; i++)
+                {
+                    table.rows[i].onclick = function()
+                    {
+                      rIndex = this.rowIndex;
+                      document.getElementById("name").value= this.cells[0].innerHTML;
+					  document.getElementById("Fname").value= this.cells[1].innerHTML;
+                      document.getElementById("gender").value= this.cells[2].innerHTML;
+                      document.getElementById("dob").value=  this.cells[3].innerHTML;
+                      document.getElementById("addr").value= this.cells[4].innerHTML;
+                      document.getElementById("city").value= this.cells[5].innerHTML;
+                      document.getElementById("mob").value= this.cells[6].innerHTML;
+                   };
+                }
+				
+            }
+                 selectedRowToInput();
+            function edit()
+            {
+                var name = document.getElementById("name").value,
+                    Fname=document.getElementById("Fname").value,
+                    gender=document.getElementById("gender").value,
+                     dob=document.getElementById("dob").value,
+                     addr=document.getElementById("addr").value,
+                   city=document.getElementById("city").value,
+                   mob=document.getElementById("mob").value;
+            
+                table.rows[rIndex].cells[0].innerHTML = name;
+                table.rows[rIndex].cells[1].innerHTML = Fname;
+                table.rows[rIndex].cells[2].innerHTML = gender;
+                table.rows[rIndex].cells[3].innerHTML = dob;
+                table.rows[rIndex].cells[4].innerHTML = addr;
+                table.rows[rIndex].cells[5].innerHTML = city;
+                table.rows[rIndex].cells[6].innerHTML = mob;
+
+                name = document.getElementById("name").value=" ";
+                Fname=document.getElementById("Fname").value=" ";
+                gender=document.getElementById("gender").value=" ";
+                dob=document.getElementById("dob").value=" ";
+                addr=document.getElementById("addr").value=" ";
+                city=document.getElementById("city").value=" ";
+                mob=document.getElementById("mob").value=" "
+                   swal("Record updated!", "You clicked the button!", "success");         
+                
+              }
+            
+            function deleteRow()
+            {			
+			swal({
+				title: "Are you sure?",
+				text: "Once deleted, you will not be able to recover this data!",
+				icon: "warning",
+				buttons: true,
+				dangerMode: true,
+			})
+			.then((willDelete) => {
+				if (willDelete) {
+				
+			if(table.rows[rIndex].cells[0]!=0) 
+			{
+                table.deleteRow(rIndex);
+				
+                document.getElementById("name").value = "";
+                name = document.getElementById("name").value="";
+                Fname=document.getElementById("Fname").value="";
+                gender=document.getElementById("gender").value="";
+                dob=document.getElementById("dob").value="";
+                addr=document.getElementById("addr").value="";
+                city=document.getElementById("city").value="";
+                mob=document.getElementById("mob").value="";
+            }
+					swal("Poof! Your data has been deleted!", {
+					icon: "success",
+			}			);
+			} else {
+				swal("Your  data is safe!");
+				}
+			});
+			}
+			
+         </script>
+		</form>
+   </body>
+</html>
